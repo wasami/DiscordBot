@@ -5,6 +5,8 @@
     "main": "bot.js",
     "author": "Abdikarim Warsame",
     "dependencies": {
-        "discord.js": "^11.5.1"
+        "discord.js": "^11.5.1",
+        "request": "^2.88.0",
+        "xml2js": "^0.4.22"
     }
 }
