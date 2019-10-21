@@ -36,7 +36,7 @@ client.on('message', msg => {
     }
 });
 
-var initialiseLastNewsFeedPostDate = function() {
+var initializeLastNewsFeedPostDate = function() {
     fs.readFile(botInfoFile, (err, data) => {
         if(err) throw err;
         botInfo = JSON.parse(data);
@@ -69,7 +69,7 @@ var getRssFeed = function(url, channel) {
                     //console.log (items[i].pubDate)
                     date = new Date(items[i].pubDate);
                     if (date >= lastNewsFeedPostDate) {
-                        message += items[i].title;
+                        message += items[i].title + " ";
                         message += items[i].link  + "\n";
                         channel.send(message);
                     }
@@ -85,7 +85,7 @@ var getRssFeed = function(url, channel) {
     });
 };
 
-initialiseLastNewsFeedPostDate();
+initializeLastNewsFeedPostDate();
 
 client.login(auth.token);
 
