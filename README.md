@@ -24,7 +24,7 @@ This will take you to a page where you can tell Discord where to take your bot. 
 ### Fork the repository
 Now your going to need to do a couple more things than just forking this repo and running the bot.
 First fork this repo.
-Then, go to the repo and create a JSON file and name it 'auth.json'. Then add the following to the file:
+Then, go to the repo and create a JSON file and name it 'auth.json'. Then add the following to the file
 ```
 {
     "token": "YOUR_TOKEN_HERE"
@@ -32,7 +32,7 @@ Then, go to the repo and create a JSON file and name it 'auth.json'. Then add th
 ```
 Go to the bot page again on the Discord developer portal and get your token from there, replace it with 'YOUR_TOKEN_HERE' and save the file.
 
-Finally open up a command line, go to the repo and install the node dependencies by using this command:
+Finally open up a command line, go to the repo and install the node dependencies by using this command
 ```
 npm install
 ```
