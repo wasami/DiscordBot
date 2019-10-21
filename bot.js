@@ -1,18 +1,17 @@
 const discord = require('discord.js');
 const client = new discord.Client();
-
 const request = require('request');
-
-var xml2js = require('xml2js');
-var xmlParser = new xml2js.Parser();
+const xml2js = require('xml2js');
+const xmlParser = new xml2js.Parser();
+const fs = require('fs');
 
 //file containing token
 const auth = require('./auth.json');
 
-var botInfo = require('./bot-info.json');
-
 const bballNewsURL = 'https://www.espn.com/espn/rss/nba/news';
+const botInfoFile = 'bot-info.json';
 
+var botInfo, lastNewsFeedPostDate;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -37,19 +36,28 @@ client.on('message', msg => {
     }
 });
 
-var initialiseLastUpdated = function() {
-    if(botInfo.lastUpdated == "") {
-        //update lastUpdated timestamp
-    }
+var initialiseLastNewsFeedPostDate = function() {
+    fs.readFile(botInfoFile, (err, data) => {
+        if(err) throw err;
+        botInfo = JSON.parse(data);
+
+        if(botInfo.lastNewsFeedPostDate == "") {
+            //set date when last posted news feed to be one ago 
+            lastNewsFeedPostDate = new Date();
+            lastNewsFeedPostDate.setDate(lastNewsFeedPostDate.getDate() - 1);
+            console.log("No date found in file. New Date: " + lastNewsFeedPostDate.toDateString());
+        }
+        else {
+            lastNewsFeedPostDate = new Date(botInfo.lastNewsFeedPostDate);
+            console.log("Date found in File: " + lastNewsFeedPostDate.toDateString());
+        }
+    });
 };
 
 var getRssFeed = function(url, channel) {
     // make request to get basketball feed
-    var message = "", i, items;
-    var keys;
-    var date;
-    var today = new Date();
-    today.setDate(today.getDate() - 1);
+    var message = "", i, items, date, data;
+
     request(url, (err, res, body) => {
         if(err) { return console.log('error: ' + err); }
 
@@ -60,21 +68,24 @@ var getRssFeed = function(url, channel) {
                 for(i=0; i < items.length; i++){
                     //console.log (items[i].pubDate)
                     date = new Date(items[i].pubDate);
-                    if (date >= today) {
+                    if (date >= lastNewsFeedPostDate) {
                         message += items[i].title;
                         message += items[i].link  + "\n";
                         channel.send(message);
                     }
-    
-    
-                } 
+                }
             });
 
-            //update last update
-            botInfo.lastLookUp = (new Date()).toDateString;
+            //update last news feed post date
+            botInfo.lastNewsFeedPostDate = (new Date()).toDateString();
+            //write back to file
+            data = JSON.stringify(botInfo, null, 2);
+            fs.writeFileSync(botInfoFile, data);
         }
-        
     });
 };
 
+initialiseLastNewsFeedPostDate();
+
 client.login(auth.token);
+
