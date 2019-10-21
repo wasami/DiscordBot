@@ -1,4 +1,4 @@
-# Ball Is Live
+# Ball Is Life
 A Discord bot dedicated to giving live updated on the latest news from the NBA. Source comes from ESPN.
 
 ## Run the bot for yourself
