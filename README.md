@@ -10,7 +10,7 @@ First you're going to need a [Discord](https://discordapp.com/) account and logi
 Then once you have a Discord account, login and create your own server!
 
 ### Create your own Bot
-Head over to https://discordapp.com/developers/applications/ and create a new application. 
+Head over to [Discords developer portal](https://discordapp.com/developers/applications/) and create a new application. 
 Then navigate to the Bot setting page and create a bot.
 
 ### Add your bot to your server
