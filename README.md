@@ -9,7 +9,7 @@ Download and install [Node.js](https://nodejs.org/en/) before anything else if y
 First you're going to need a [Discord](https://discordapp.com/) account and login to discord either through the browser or the app if you have it installed.
 Then once you have a Discord account, login and create your own server!
 
-### Create your own Bot
+### Create your own bot
 Head over to [Discords developer portal](https://discordapp.com/developers/applications/) and create a new application. 
 Then navigate to the Bot setting page and create a bot.
 
@@ -19,7 +19,7 @@ You can get your applications client ID from the general information page
 ```
 https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID&scope=bot&permissions=8
 ```
-This will take you to page where you can tell Discord where to take your Bot. Add the bot to the server you created earlier.
+This will take you to a page where you can tell Discord where to take your bot. Add the bot to the server you created earlier.
 
 ### Fork the repository
 Now your going to need to do a couple more things than just forking this repo and running the bot.
@@ -30,13 +30,12 @@ Then, go to the repo and create a JSON file and name it 'auth.json'. Then add th
     "token": "YOUR_TOKEN_HERE"
 }
 ```
-Go to the Bot page again on the Discord developer portal and get your token from there, replace it with 'YOUR_TOKEN_HERE' and save the file.
+Go to the bot page again on the Discord developer portal and get your token from there, replace it with 'YOUR_TOKEN_HERE' and save the file.
 
-finally open up a command line, go to the repo and install the node dependencies by using this command:
+Finally open up a command line, go to the repo and install the node dependencies by using this command:
 ```
 npm install
 ```
-
 ### Run the bot
 Hopefully, by this point you have carried out the necessary steps to run the bot yourself. All that is left is execute this command
 ```
