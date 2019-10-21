@@ -37,7 +37,7 @@ finally open up a command line, go to the repo and install the node dependencies
 npm install
 ```
 
-### Run the bot#
+### Run the bot
 Hopefully, by this point you have carried out the necessary steps to run the bot yourself. All that is left is execute this command
 ```
 node bot.js
