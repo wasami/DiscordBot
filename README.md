@@ -14,15 +14,15 @@ Head over to [Discords developer portal](https://discordapp.com/developers/appli
 Then navigate to the Bot setting page and create a bot.
 
 ### Add your bot to your server
-To do this you are going to need to put the URL below into your browser but replace 'YOUR_CLIENT_ID' with your client ID for your discord app.
-You can get your applications client ID from the general information page 
+To do this you are going to need to put the URL below into your browser but replace 'YOUR_CLIENT_ID' with your client ID from your discord app.
+You can get your application's client ID from the general information page 
 ```
 https://discordapp.com/oauth2/authorize?&client_id=YOUR_CLIENT_ID&scope=bot&permissions=8
 ```
 This will take you to a page where you can tell Discord where to take your bot. Add the bot to the server you created earlier.
 
 ### Fork the repository
-Now your going to need to do a couple more things than just forking this repo and running the bot.
+Now you're going to need to do a couple more things than just forking this repo and running the bot.
 First fork this repo.
 Then, go to the repo and create a JSON file and name it 'auth.json'. Then add the following to the file
 ```
@@ -37,12 +37,12 @@ Finally open up a command line, go to the repo and install the node dependencies
 npm install
 ```
 ### Run the bot
-Hopefully, by this point you have carried out the necessary steps to run the bot yourself. All that is left is execute this command
+Hopefully, by this point you have carried out the necessary steps to run the bot yourself. All that is left is to execute this command
 ```
 node bot.js
 ```
 After this you should see the message on your console 'Logged in as [your_bot_name]#0000!' and tada! The bot is live.
 
 ## How to use the bot
-Currently the bot is not automated yet and the only way to interact with the bot is by sending a message to the server the bot joined.
-The only commands the bot recognises so far is '!ping' and '!news'. Try it and see what happens!
+Currently the bot is not automated and the only way to interact with the bot is by sending a message to the server the bot joined.
+Right now, The bot only recognises two commands: '!ping' and '!news'. Try them and see what happens!
